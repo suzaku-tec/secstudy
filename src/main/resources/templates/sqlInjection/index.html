@@ -3,7 +3,7 @@
 	<head>
 	</head>
 	<body>
-		<form th:action="@{/secstudy/execute}" th:object="${secstudyForm}" method="post">
+		<form th:action="@{/sqlInjection/execute}" th:object="${sqlInjectionForm}" method="post">
 		実行されるSQL：select id, name, comment from member where name = '【入力した内容】'<br/>
 		search name <input type="text" th:field="*{name}" />
 		</form>

@@ -1,4 +1,4 @@
-package com.secstudy;
+package com.secstudy.dto;
 
 import java.io.Serializable;
 

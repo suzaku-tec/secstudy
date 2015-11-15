@@ -1,8 +1,8 @@
-package com.secstudy;
+package com.secstudy.form.sqlInjection;
 
 import java.io.Serializable;
 
-public class SecstudyForm implements Serializable {
+public class SqlInjectionForm implements Serializable {
 
 	/**
 	 * 

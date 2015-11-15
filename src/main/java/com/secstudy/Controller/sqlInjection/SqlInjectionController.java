@@ -1,4 +1,4 @@
-package com.secstudy;
+package com.secstudy.Controller.sqlInjection;
 
 import java.util.HashMap;
 import java.util.List;
@@ -10,17 +10,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.secstudy.dto.Member;
+import com.secstudy.form.sqlInjection.SqlInjectionForm;
+
 import jp.sf.amateras.mirage.SqlManager;
 import jp.sf.amateras.mirage.session.Session;
 import jp.sf.amateras.mirage.session.SessionFactory;
 
 @Controller
-@RequestMapping(value = "secstudy")
-public class SecstudyController {
+@RequestMapping(value = "sqlInjection")
+public class SqlInjectionController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String index(SecstudyForm form) {
-		return "secstudy/index";
+	public String index(SqlInjectionForm form) {
+		return "sqlInjection/index";
 	}
 
 	/**
@@ -31,7 +34,7 @@ public class SecstudyController {
 	 * @return
 	 */
 	@RequestMapping(value = "/execute", method = RequestMethod.POST)
-	public String execute(SecstudyForm form, Model model)  {
+	public String execute(SqlInjectionForm form, Model model)  {
 
 		Session session = SessionFactory.getSession();
 		SqlManager sqlManager = session.getSqlManager();
@@ -53,7 +56,7 @@ public class SecstudyController {
 		  session.release();
 		}
 
-		return "secstudy/result";
+		return "sqlInjection/result";
 	}
 
 }
