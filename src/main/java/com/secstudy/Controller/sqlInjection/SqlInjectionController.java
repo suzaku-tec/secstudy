@@ -33,15 +33,15 @@ public class SqlInjectionController {
 	 * @param model
 	 * @return
 	 */
+	@SuppressWarnings("deprecation")
 	@RequestMapping(value = "/execute", method = RequestMethod.POST)
-	public String execute(SqlInjectionForm form, Model model)  {
+	public @ResponseBody String execute(SqlInjectionForm form, Model model)  {
 
 		Session session = SessionFactory.getSession();
 		SqlManager sqlManager = session.getSqlManager();
 		 
 		session.begin();
 		try {
-			System.out.println("name:" + form.getName());
 			Map<String, Object> params = new HashMap<>();
 			params.put("name", form.getName());
 			List<Member> list = sqlManager.getResultListBySql(Member.class, "select id, name, comment from member where name = '" + form.getName() + "'");
